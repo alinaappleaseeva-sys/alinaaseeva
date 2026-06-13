@@ -16,6 +16,8 @@
   --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
   --nav-h: 64px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ─── Reset ─── */
@@ -905,4 +907,158 @@ ul { list-style: none; }
   .hero__photo { width: 140px; height: 170px; }
   .edu-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS & MICRO-INTERACTIONS
+   ═══════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-22px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Hero entrance (staggered) ── */
+.hero__photo-col {
+  animation: fade-in-left 0.7s var(--ease-expo) 0.05s both;
+}
+.hero__role {
+  animation: fade-up 0.55s var(--ease-expo) 0.15s both;
+}
+.hero__name {
+  animation: fade-up 0.55s var(--ease-expo) 0.22s both;
+}
+.hero__tagline {
+  animation: fade-up 0.55s var(--ease-expo) 0.3s both;
+}
+.hero__tagline--cta {
+  animation: fade-up 0.55s var(--ease-expo) 0.36s both;
+}
+.hero__contacts {
+  animation: fade-up 0.55s var(--ease-expo) 0.43s both;
+}
+.hero__badges {
+  animation: fade-up 0.55s var(--ease-expo) 0.52s both;
+}
+
+/* ── Hero photo — subtle scale on hover ── */
+.hero__photo {
+  transition: transform 0.4s var(--spring), box-shadow 0.4s var(--ease-expo) !important;
+}
+.hero__photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 48px rgba(124,58,237,0.18);
+}
+
+/* ── Nav link — sliding underline ── */
+.nav__links a {
+  transition: color 0.2s, background 0.2s !important;
+}
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 8px; right: 8px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s var(--ease-expo);
+}
+.nav__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+/* Make sure positioning works */
+.nav__links li a { position: relative; }
+
+/* ── Scroll-reveal: class-based ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity  0.55s var(--ease-expo),
+    transform 0.55s var(--ease-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Cards — springy lift ── */
+.portfolio-card,
+.edu-card,
+.ref-card {
+  transition:
+    box-shadow 0.35s var(--ease-expo),
+    transform  0.35s var(--spring) !important;
+}
+.portfolio-card:hover,
+.edu-card:hover,
+.ref-card:hover {
+  transform: translateY(-5px) scale(1.01) !important;
+  box-shadow: 0 14px 44px rgba(124,58,237,0.14), 0 2px 8px rgba(0,0,0,0.05) !important;
+}
+
+/* ── Talk cards — background glow on hover ── */
+.talk-card {
+  transition: background 0.25s, box-shadow 0.3s var(--ease-expo) !important;
+}
+.talk-card:hover {
+  background: var(--white) !important;
+  box-shadow: 0 6px 24px rgba(124,58,237,0.09) !important;
+}
+
+/* ── Contact links — spring press ── */
+.contact-link {
+  transition:
+    border-color 0.2s, color 0.2s,
+    box-shadow 0.2s,
+    transform 0.18s var(--spring) !important;
+}
+.contact-link:active { transform: scale(0.94) !important; }
+
+/* ── Buttons — spring press ── */
+.pf-link {
+  transition: all 0.2s var(--ease-expo), transform 0.18s var(--spring) !important;
+}
+.pf-link:active { transform: scale(0.94) !important; }
+
+.nav__cta {
+  transition: background 0.2s, transform 0.18s var(--spring) !important;
+}
+.nav__cta:active { transform: scale(0.94) !important; }
+
+/* ── Badges — spring pop on hover ── */
+.badge {
+  transition:
+    background 0.2s, border-color 0.2s, color 0.2s,
+    transform 0.22s var(--spring) !important;
+}
+.badge:hover {
+  background: var(--accent-light) !important;
+  border-color: var(--accent-mid) !important;
+  color: var(--accent) !important;
+  transform: scale(1.08) translateY(-1px) !important;
+}
+
+/* ── Timeline period — accent on item hover ── */
+.timeline__item { transition: --noop 0s; }
+.timeline__item:hover .timeline__period {
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+/* ── PDF doc link — arrow nudge ── */
+.pf-link--doc {
+  transition: border-color 0.2s, color 0.2s, transform 0.22s var(--spring) !important;
+}
+.pf-link--doc:hover {
+  transform: translateX(2px) !important;
 }

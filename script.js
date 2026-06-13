@@ -1,47 +1,56 @@
-// Nav scroll effect
+// ── Nav scroll shadow ──
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Mobile burger
+// ── Mobile burger ──
 const burger = document.getElementById('nav-burger');
 const navLinks = document.getElementById('nav-links');
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(link =>
+  link.addEventListener('click', () => navLinks.classList.remove('open'))
+);
 
-// Cover letter tabs
-document.querySelectorAll('.cl-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.cl-tab').forEach(t => t.classList.remove('cl-tab--active'));
-    document.querySelectorAll('.cl-panel').forEach(p => p.classList.remove('cl-panel--active'));
-    tab.classList.add('cl-tab--active');
-    document.getElementById(tab.dataset.target).classList.add('cl-panel--active');
+// ── Scroll-reveal with stagger ──
+// Elements that animate one by one within their container get a stagger delay.
+const STAGGER = 80; // ms between siblings
+
+function addRevealClass(selector, stagger = false) {
+  const groups = {};
+  document.querySelectorAll(selector).forEach(el => {
+    el.classList.add('reveal');
+    if (stagger) {
+      const parent = el.parentElement;
+      if (!groups[parent]) groups[parent] = [];
+      groups[parent].push(el);
+    }
   });
-});
+  if (stagger) {
+    Object.values(groups).forEach(siblings => {
+      siblings.forEach((el, i) => {
+        el.style.setProperty('--reveal-delay', `${i * STAGGER}ms`);
+      });
+    });
+  }
+}
 
-// Fade-in on scroll
+addRevealClass('.timeline__item', true);
+addRevealClass('.edu-card',       true);
+addRevealClass('.portfolio-card', true);
+addRevealClass('.talk-card',      true);
+addRevealClass('.ref-card',       true);
+addRevealClass('.section__title', false);
+addRevealClass('.section__subtitle', false);
+addRevealClass('.portfolio-subheading', false);
+
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.timeline__item, .edu-card, .portfolio-card, .talk-card, .ref-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-  observer.observe(el);
-});
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.visible').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      observer.unobserve(e.target);
+    }
   });
-});
+}, { threshold: 0.08 });
 
-// Apply visible class
-const style = document.createElement('style');
-style.textContent = '.visible { opacity: 1 !important; transform: none !important; }';
-document.head.appendChild(style);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
