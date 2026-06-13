@@ -1,14 +1,14 @@
 /* ─── Variables ─── */
 :root {
-  --accent: #7C3AED;
-  --accent-light: #EDE9FE;
-  --accent-mid: #C4B5FD;
-  --dark: #111827;
-  --body: #374151;
-  --muted: #6B7280;
-  --border: #E5E7EB;
-  --bg: #FAFAF8;
-  --bg-alt: #F3F4F6;
+  --accent: oklch(40% 0.14 192);
+  --accent-light: oklch(96.5% 0.025 192);
+  --accent-mid: oklch(71% 0.09 192);
+  --dark: #0D1F1F;
+  --body: #1F3333;
+  --muted: #526666;
+  --border: oklch(91% 0.012 192);
+  --bg: oklch(98.5% 0.006 192);
+  --bg-alt: oklch(95.5% 0.010 192);
   --white: #FFFFFF;
   --radius: 12px;
   --radius-sm: 8px;
@@ -47,7 +47,7 @@ ul { list-style: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  background: rgba(250,250,248,0.92);
+  background: rgba(248,250,250,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
@@ -129,7 +129,7 @@ ul { list-style: none; }
   object-fit: cover;
   object-position: center top;
   border: 3px solid var(--accent-mid);
-  box-shadow: 0 8px 32px rgba(124,58,237,0.12);
+  box-shadow: 0 8px 32px rgba(11,113,111,0.12);
   display: block;
 }
 .hero__main {
@@ -187,7 +187,7 @@ ul { list-style: none; }
   border-radius: 20px;
   transition: all .2s;
 }
-.contact-link:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 2px 8px rgba(124,58,237,0.15); }
+.contact-link:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 2px 8px rgba(11,113,111,0.15); }
 .hero__badges {
   display: flex;
   flex-wrap: wrap;
@@ -952,7 +952,7 @@ ul { list-style: none; }
 }
 .hero__photo:hover {
   transform: scale(1.03);
-  box-shadow: 0 16px 48px rgba(124,58,237,0.18);
+  box-shadow: 0 16px 48px rgba(11,113,111,0.18);
 }
 
 /* ── Nav link — sliding underline ── */
@@ -1003,7 +1003,7 @@ ul { list-style: none; }
 .edu-card:hover,
 .ref-card:hover {
   transform: translateY(-5px) scale(1.01) !important;
-  box-shadow: 0 14px 44px rgba(124,58,237,0.14), 0 2px 8px rgba(0,0,0,0.05) !important;
+  box-shadow: 0 14px 44px rgba(11,113,111,0.14), 0 2px 8px rgba(0,0,0,0.05) !important;
 }
 
 /* ── Talk cards — background glow on hover ── */
@@ -1012,7 +1012,7 @@ ul { list-style: none; }
 }
 .talk-card:hover {
   background: var(--white) !important;
-  box-shadow: 0 6px 24px rgba(124,58,237,0.09) !important;
+  box-shadow: 0 6px 24px rgba(11,113,111,0.09) !important;
 }
 
 /* ── Contact links — spring press ── */
