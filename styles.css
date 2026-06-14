@@ -958,7 +958,7 @@ ul { list-style: none; }
 
 /* ── Keyframes ── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
   to   { opacity: 1; transform: none; }
 }
 @keyframes bounce {
@@ -968,13 +968,13 @@ ul { list-style: none; }
 
 /* ── Hero entrance (staggered) — only when motion is OK ── */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__video-col { animation: fade-up 0.7s var(--ease-expo) 0.05s both; }
-  .hero__role      { animation: fade-up 0.55s var(--ease-expo) 0.15s both; }
-  .hero__name      { animation: fade-up 0.55s var(--ease-expo) 0.22s both; }
-  .hero__tagline   { animation: fade-up 0.55s var(--ease-expo) 0.30s both; }
-  .hero__tagline--cta { animation: fade-up 0.55s var(--ease-expo) 0.36s both; }
-  .hero__contacts  { animation: fade-up 0.55s var(--ease-expo) 0.43s both; }
-  .hero__pdf-btn   { animation: fade-up 0.55s var(--ease-expo) 0.50s both; }
+  .hero__video-col { animation: fade-up 0.75s var(--ease-expo) 0.05s both; }
+  .hero__role      { animation: fade-up 0.55s var(--ease-expo) 0.12s both; }
+  .hero__name      { animation: fade-up 0.65s var(--ease-expo) 0.22s both; }
+  .hero__tagline   { animation: fade-up 0.55s var(--ease-expo) 0.35s both; }
+  .hero__tagline--cta { animation: fade-up 0.55s var(--ease-expo) 0.46s both; }
+  .hero__contacts  { animation: fade-up 0.55s var(--ease-expo) 0.57s both; }
+  .hero__pdf-btn   { animation: fade-up 0.55s var(--ease-expo) 0.68s both; }
   .hero__scroll-hint { animation: bounce 2s var(--ease-expo) infinite; }
 }
 
