@@ -190,6 +190,13 @@ ul { list-style: none; }
   transition: all .2s;
 }
 .contact-link:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 2px 8px rgba(11,113,111,0.15); }
+.contact-link--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  font-weight: 600;
+}
+.contact-link--primary:hover { background: var(--dark); border-color: var(--dark); color: var(--white); }
 .hero__badges {
   display: flex;
   flex-wrap: wrap;
