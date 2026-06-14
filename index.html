@@ -302,7 +302,56 @@
             <h2 class="section__title">Портфолио</h2>
             <p class="section__subtitle">Живые проекты, артефакты и консалтинг-кейсы · <a href="https://github.com/alinaappleaseeva-sys" target="_blank" rel="noopener">Весь код на GitHub →</a></p>
 
-            <!-- Featured project -->
+            <!-- Featured projects -->
+
+            <!-- 1. Nature of Product Cover -->
+            <div class="portfolio-featured">
+                <div class="portfolio-featured__body">
+                    <div class="portfolio-featured__header">
+                        <div>
+                            <span class="portfolio-card__tag portfolio-card__tag--new">Конкурс · 2025</span>
+                            <h3 class="portfolio-featured__title">Nature of Product — обложка книги для конкурса Замесина</h3>
+                        </div>
+                        <div class="portfolio-featured__links">
+                            <a href="https://github.com/alinaappleaseeva-sys/nature-of-product-cover" target="_blank" rel="noopener" class="pf-link pf-link--primary">GitHub →</a>
+                        </div>
+                    </div>
+                    <p class="portfolio-featured__desc">
+                        Дизайн обложки для книги Ивана Замесина «Природа продукта». Типографика в центре, фрактальный мотив как атмосфера — не иллюстрация. Обложка проектировалась как premium nonfiction: читаемая в миниатюре, весомая на полке. Ориентиры — Stripe Press, MIT Press, Atomic Habits.
+                    </p>
+                    <div class="portfolio-featured__highlights">
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">🔤</span>
+                            <div>
+                                <strong>Типографика в центре</strong>
+                                <p>Fraunces display serif, двухстрочный заголовок для монументального ритма, тёплый near-black + cream. Никаких декоративных графиков, мозгов и шестерёнок.</p>
+                            </div>
+                        </div>
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">🌿</span>
+                            <div>
+                                <strong>Параметрический фрактальный мотив</strong>
+                                <p>Node-graph constellation в нижней трети — сгенерирован алгоритмически в motifs.mjs. Замечаешь со второго взгляда, никогда не конкурирует с заголовком. Отсылка к Job Graph-методологии книги.</p>
+                            </div>
+                        </div>
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">📦</span>
+                            <div>
+                                <strong>Полный пакет выходных файлов</strong>
+                                <p>Ebook PNG 1600×2560 RGB, print PDF 6.25×9.25 in CMYK 300 DPI, editable SVG с живым текстом + changelog версий v1→v7.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card__metrics" style="margin-top: 4px;">
+                        <span>SVG</span>
+                        <span>Node.js</span>
+                        <span>Figma</span>
+                        <span>Параметрическая генерация</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Book Reader -->
             <div class="portfolio-featured">
                 <div class="portfolio-featured__body">
                     <div class="portfolio-featured__header">
@@ -346,6 +395,53 @@
                         <span>Antigravity</span>
                         <span>Vanilla JS</span>
                         <span>GitHub Pages</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Arcus · Ode Triunfal -->
+            <div class="portfolio-featured">
+                <div class="portfolio-featured__body">
+                    <div class="portfolio-featured__header">
+                        <div>
+                            <span class="portfolio-card__tag portfolio-card__tag--new">Конкурс Augusta Labs · 2025</span>
+                            <h3 class="portfolio-featured__title">Arcus · Ode Triunfal — задача Augusta Labs</h3>
+                        </div>
+                        <div class="portfolio-featured__links">
+                            <a href="https://github.com/alinaappleaseeva-sys/arcus-ode-triunfal" target="_blank" rel="noopener" class="pf-link">GitHub (открыт после конкурса)</a>
+                        </div>
+                    </div>
+                    <p class="portfolio-featured__desc">
+                        Конкурс Augusta Labs — без резюме, без форм. Только SSH и задача: получить строфу из «Триумфальной оды» Фернандо Пессоа и найти флаг, спрятанный в GPT-модели, обученной на португальской литературе. Призовой фонд €3 000.
+                    </p>
+                    <div class="portfolio-featured__highlights">
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">🧪</span>
+                            <div>
+                                <strong>Гипотезный подход</strong>
+                                <p>Каждая гипотеза — отдельный файл (h01_perplexity.py → hN). Результат и вывод задокументированы. Никакой магии, только reasoning.</p>
+                            </div>
+                        </div>
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">🧠</span>
+                            <div>
+                                <strong>Reverse engineering модели</strong>
+                                <p>GPT с 262-токенным словарём: byte-level tokenizer + 6 специальных токенов гетеронимов Пессоа. Álvaro de Campos — не отдельный токен: это гетероним Fernando Pessoa.</p>
+                            </div>
+                        </div>
+                        <div class="pf-highlight">
+                            <span class="pf-highlight__icon">📝</span>
+                            <div>
+                                <strong>Инженерная культура</strong>
+                                <p>notes.md с живым логом находок, структурированный репозиторий, строгое соблюдение stdout-контракта и raw token logging.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card__metrics" style="margin-top: 4px;">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>GPT</span>
+                        <span>SSH</span>
                     </div>
                 </div>
             </div>
