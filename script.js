@@ -10,13 +10,13 @@ const navLinks = document.getElementById('nav-links');
 burger.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   burger.setAttribute('aria-expanded', isOpen);
-  burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+  burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
 });
 navLinks.querySelectorAll('a').forEach(link =>
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Открыть меню');
+    burger.setAttribute('aria-label', 'Open menu');
   })
 );
 
